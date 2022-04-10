@@ -25,6 +25,7 @@ until option == 0
   end
 end
 
+# Instruções de controle 
 def controlInstructions
   puts " Instruções de Controle"
   puts "----------If-----------"
@@ -63,7 +64,7 @@ def controlInstructions
     puts "Idade diferente de 21 anos.."
   end
   
-	  puts "---------While---------"
+  puts "---------While---------"
   idade += 1
   while idade > 17
     idade -= 1    
@@ -89,6 +90,7 @@ def controlInstructions
 end
 end
 
+# classe
 class Pessoa
   def initialize(nome : String, idade : Int32)
     @nome = nome
@@ -104,6 +106,7 @@ class Pessoa
   end
 end 
 
+# Alocação de Memória
 def memoryAllocation
   puts " Alocação de Memória"
   # Int32 quando não indicado
@@ -113,6 +116,7 @@ def memoryAllocation
   print "\n\n"
   
   puts "-------pointerof(x)-------"
+  # ponteiro que aponta para a variável idade
   ptr_idade = pointerof(idade)
   ptr_idade.value = 30
   puts ptr_idade
@@ -126,13 +130,14 @@ def memoryAllocation
 
   puts "----------Malloc----------"
   # malloc com a quantidade de bytes e o valor inicial
-  # no caso seria 2*Int32 = 2*4 = 8 bytes
+  # no caso, 2*Int32 = 2*4 = 8 bytes
   ptr_idade = Pointer.malloc(2, 21)
   puts ptr_idade
   puts ptr_idade[0]
   puts ptr_idade[1]
 
   puts "---Instância de Classe----"
+  # criando uma instância da classe
   luana = Pessoa.new "Luana", 21
   puts luana.nome
   puts luana.idade
