@@ -4,7 +4,7 @@ until option == 0
   puts "\n-------------------Menu-------------------"
   puts "0 - Sair"
   puts "1 - Instruções de Controle"
-  puts "2 - "
+  puts "2 - Alocação de Memória"
   puts "3 - "
 
   puts "Opção:"
@@ -17,6 +17,8 @@ until option == 0
     puts "Encerrando."
   when 1
     controlInstructions
+  when 2
+    memoryAllocation
   else
     puts "Opção Inválida."
     exit 0
@@ -84,7 +86,59 @@ def controlInstructions
     puts "Idade #{idade.to_s}"
     idade -= 1
   end
+end
+end
+
+class Pessoa
+  def initialize(nome : String, idade : Int32)
+    @nome = nome
+    @idade = idade
+  end
+  
+  def nome
+    @nome
+  end
+
+  def idade
+    @idade
+  end
+end 
+
+def memoryAllocation
+  puts " Alocação de Memória"
+  # Int32 quando não indicado
+  idade = 21
+  print "\n Idade inicial: "
+  print idade
+  print "\n\n"
+  
+  puts "-------pointerof(x)-------"
+  ptr_idade = pointerof(idade)
+  ptr_idade.value = 30
+  puts ptr_idade
+  puts ptr_idade.value
+  
+  puts "---------Ponteiro---------"
+  # ponteiro endereçado
+  ptr_idade = Pointer(Int64).new(5678)
+  puts ptr_idade.address
+  puts ptr_idade
+
+  puts "----------Malloc----------"
+  # malloc com a quantidade de bytes e o valor inicial
+  # no caso seria 2*Int32 = 2*4 = 8 bytes
+  ptr_idade = Pointer.malloc(2, 21)
+  puts ptr_idade
+  puts ptr_idade[0]
+  puts ptr_idade[1]
+
+  puts "---Instância de Classe----"
+  luana = Pessoa.new "Luana", 21
+  puts luana.nome
+  puts luana.idade
+  puts luana
 
 end
 
-end
+
+
