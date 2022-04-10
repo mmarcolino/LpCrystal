@@ -61,7 +61,7 @@ def controlInstructions
     puts "Idade diferente de 21 anos.."
   end
   
-  puts "--------While---------"
+	  puts "---------While---------"
   idade += 1
   while idade > 17
     idade -= 1    
@@ -78,7 +78,7 @@ def controlInstructions
     print "\n"
   end
 
-  puts "--------Until---------"
+  puts "---------Until---------"
   idade = 21
   until idade < 20
     puts "Idade #{idade.to_s}"
