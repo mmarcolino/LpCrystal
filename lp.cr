@@ -1,7 +1,7 @@
 option = -1
 
 until option == 0
-  puts "-------------------Menu-------------------"
+  puts "\n-------------------Menu-------------------"
   puts "0 - Sair"
   puts "1 - Instruções de Controle"
   puts "2 - "
@@ -10,6 +10,7 @@ until option == 0
   puts "Opção:"
   option = gets  
   option = option.to_s.to_i
+  print "\n"
 
   case option
   when 0 
@@ -23,6 +24,21 @@ until option == 0
 end
 
 def controlInstructions
-  puts "Luana"
+  puts " Instruções de Controle"
+  puts "----------If-----------"
+  idade = 21
+  if idade < 21
+    puts "Menor de 21 anos."
+  else if idade == 21
+    puts "21 anos."
+  else 
+    puts "Maior de 21 anos."
+  end
+
+  puts "------If Ternário------"
+  puts idade <= 21 ? (idade < 21 ? "Menor de 21 anos." : "21 anos.") : "Maior de 21 anos."
+
+  puts "--------Unless---------"
 end
 
+end
