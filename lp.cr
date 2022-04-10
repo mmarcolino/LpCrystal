@@ -5,7 +5,7 @@ until option == 0
   puts "0 - Sair"
   puts "1 - Instruções de Controle"
   puts "2 - Alocação de Memória"
-  puts "3 - "
+  puts "3 - Tipos de Dados"
 
   puts "Opção:"
   option = gets  
@@ -19,13 +19,14 @@ until option == 0
     controlInstructions
   when 2
     memoryAllocation
+  when 3
+    tiposDeDados
   else
     puts "Opção Inválida."
     exit 0
   end
 end
 
-# Instruções de controle 
 def controlInstructions
   puts " Instruções de Controle"
   puts "----------If-----------"
@@ -64,7 +65,7 @@ def controlInstructions
     puts "Idade diferente de 21 anos.."
   end
   
-  puts "---------While---------"
+	  puts "---------While---------"
   idade += 1
   while idade > 17
     idade -= 1    
@@ -90,7 +91,6 @@ def controlInstructions
 end
 end
 
-# classe
 class Pessoa
   def initialize(nome : String, idade : Int32)
     @nome = nome
@@ -106,7 +106,6 @@ class Pessoa
   end
 end 
 
-# Alocação de Memória
 def memoryAllocation
   puts " Alocação de Memória"
   # Int32 quando não indicado
@@ -116,7 +115,6 @@ def memoryAllocation
   print "\n\n"
   
   puts "-------pointerof(x)-------"
-  # ponteiro que aponta para a variável idade
   ptr_idade = pointerof(idade)
   ptr_idade.value = 30
   puts ptr_idade
@@ -130,14 +128,13 @@ def memoryAllocation
 
   puts "----------Malloc----------"
   # malloc com a quantidade de bytes e o valor inicial
-  # no caso, 2*Int32 = 2*4 = 8 bytes
+  # no caso seria 2*Int32 = 2*4 = 8 bytes
   ptr_idade = Pointer.malloc(2, 21)
   puts ptr_idade
   puts ptr_idade[0]
   puts ptr_idade[1]
 
   puts "---Instância de Classe----"
-  # criando uma instância da classe
   luana = Pessoa.new "Luana", 21
   puts luana.nome
   puts luana.idade
@@ -145,5 +142,17 @@ def memoryAllocation
 
 end
 
-
-
+#Função que demonstra alguns dos tipos de dados utilizados na linguagem. 
+def tiposDeDados
+  puts "---------Tipos Primitivos---------"
+  idadeInt = 18
+  idadeFloat = 18.0
+  idadeString = "18 anos"
+  isIdadesEquals = idadeInt == idadeFloat
+  puts "Idade em inteiro: #{idadeInt}, idade em ponto flutuante: #{idadeFloat}, idade em string #{idadeString}."
+  puts "\nAo testar se idadeInt == idadeFloat, obtemos #{isIdadesEquals}, que representa o tipo boolean\n"
+  puts "---------Tipos Compostos---------"
+  arrayDeIdades = [idadeInt, idadeFloat, idadeString, isIdadesEquals]
+  puts "Um array é um tipo de dados composto (mapeamento), que pode receber valores de vários tipos mais simples."
+  puts "Como exemplo, considere um array contendo as quatro variáveis anteriores. índice 0: #{arrayDeIdades[0]}, índice 1: #{arrayDeIdades[1]}, índice 2: #{arrayDeIdades[2]}, índice 3: #{arrayDeIdades[3]}"
+end
