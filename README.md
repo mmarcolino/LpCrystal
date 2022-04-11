@@ -1,4 +1,4 @@
-# LpCrystal
+# Sintaxe e Semântica - Crystal
 
 Trabalho de Linguagens de Programação - PUC-Minas.
 
